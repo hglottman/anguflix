@@ -1,0 +1,12 @@
+  <mat-card-header class="movieUnit">
+<img class='img-movie' src={{movie.img}}>
+  <mat-card-content>
+      <h2 style="text-align:left;float:left;">{{movie.title}},</h2> 
+      <h4 style="text-align:right;float:right;">{{movie.year}}</h4> 
+      <br>
+      <br>
+    <p>{{movie.descrShort}}</p>
+    <br>
+    <span>{{movie.price}}$ </span>
+    <button mat-button (click)='buyMovie()'>Buy me</button>
+  </mat-card-content>
