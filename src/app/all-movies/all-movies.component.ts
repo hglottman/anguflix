@@ -14,7 +14,6 @@ export class AllMoviesComponent implements OnInit {
 
   movies = new Array<Movie>();
   filterTerm: string;
-  selectedMovie: Movie;
 
 
   constructor(private moviesService: MoviesService, private route: ActivatedRoute, private router: Router) {
@@ -28,7 +27,7 @@ export class AllMoviesComponent implements OnInit {
   }
 
   addToSelectedMovies(movie) {
-  this.moviesService.addMovie(this.selectedMovie);
+  this.moviesService.addMovie(movie);
 }
 
 

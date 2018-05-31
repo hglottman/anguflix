@@ -13,21 +13,19 @@ import { AllMoviesComponent } from '../all-movies/all-movies.component';
 export class MovieUnitComponent implements OnInit {
 
   @Input() movie: Movie;
-  @Output() movieAdded: EventEmitter<Movie> = new EventEmitter();
+  @Output() buttonOnClick: EventEmitter<Movie> = new EventEmitter();
 
-  constructor(private moviesService: MoviesService, private allMoviesComponent: AllMoviesComponent) { }
+  constructor(private moviesService: MoviesService) { }
 
   ngOnInit() {
   }
 
+
   buyMovie() {
-    this.allMoviesComponent.addToSelectedMovies(this.movie);
-    const newMovie = new Movie;
-    this.movieAdded.emit(newMovie);
+    this.buttonOnClick.emit(this.movie);
   }
-
-
 }
+
 
 
 

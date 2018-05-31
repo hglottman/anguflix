@@ -1,0 +1,14 @@
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+.flex .movie-card{
+    width: calc(100%/4 - 5px*4);
+    margin:5px;
+    justify-content: space-between;
+}
+
+.mat-card{
+    box-sizing: border-box;
+}
+    

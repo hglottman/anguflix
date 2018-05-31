@@ -2,10 +2,7 @@
     <h1>All movies</h1>
     <div class="flex">
         <mat-card flex="30" *ngFor="let movie of movies; let idx = index" class="movie-card">
-            <app-movie-unit [movie]="movie"></app-movie-unit>
+            <app-movie-unit [movie]="movie" (buttonOnClick)="addToSelectedMovies($event)"></app-movie-unit>
         </mat-card>
-    </div>
-    <div *ngIf="selectedMovie" class="expander-container">
-             <app-selected-movies [movie]="selectedMovie" (movieAdded)="handleAddMovie($event)"></app-selected-movies>
-          </div>
+    </div> 
 </div>

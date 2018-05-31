@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../moviesService';
 import { Movie } from '../movie';
+import { fn } from '@angular/compiler/src/output/output_ast';
 
 
 @Component({
@@ -9,18 +10,20 @@ import { Movie } from '../movie';
   styleUrls: ['./selected-movies.component.scss']
 })
 
-
 export class SelectedMoviesComponent implements OnInit {
 
+  selectedMovies = new Array<Movie>();
+  filterTerm: string;
 
   constructor(private moviesService: MoviesService) { }
 
   ngOnInit() {
+    this.selectedMovies = this.moviesService.getSelectedMovies();
   }
 
 
-  handleAddWalk() {
-    this.moviesService.getMovies();
+  removeMovie(movie) {
+    this.moviesService.removeMovie(movie);
   }
 
 }
