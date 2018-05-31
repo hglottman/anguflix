@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Movie } from './movie';
+import { User } from './user';
+
 
 const MOVIES = [
   {
@@ -51,8 +53,12 @@ const MOVIES = [
 export class MoviesService {
 
   selectedMovies: Array<Movie> = new Array<Movie>();
+  user: User = new User();
 
-  constructor() { }
+
+  constructor() {
+    this.user.budget = 100;
+  }
 
 
   getMovies(): Movie[] {
@@ -63,18 +69,33 @@ export class MoviesService {
     return this.selectedMovies;
   }
 
+  getUser() {
+    return this.user;
+  }
+
   addMovie(movie: Movie) {
     movie.id = this.getSelectedMovies().length + 1;
     this.selectedMovies.push(movie);
   }
 
   removeMovie(movie: Movie) {
-    const id = movie.id;
-    const x = function (currMovie: Movie) {
-     return  (movie.id === id);
+    const id: number = movie.id;
+
+    const existingMovieIndex = (myId) => {
+      for (let i = 0; i < this.selectedMovies.length; i++) {
+        if (this.selectedMovies[i].id === myId) {
+          return i;
+        }
+      }
     };
-    const existingMovieIndex = this.getSelectedMovies().findIndex(x);
-    this.selectedMovies.splice(1, existingMovieIndex);
+
+    this.selectedMovies.splice(existingMovieIndex(id), 1);
+    this.user.budget += movie.price;
+    return this.selectedMovies;
+  }
+
+  updateBudget(movie: Movie) {
+    this.user.budget -= movie.price;
   }
 
 }

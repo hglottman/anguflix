@@ -9,7 +9,7 @@
     flex-wrap: wrap;
 }
 .flex .movie-card{
-    width: calc(100%/4 - 5px*4);
+    width: calc(100%/3 - 5px*3);
     margin:5px;
     justify-content: space-between;
 }

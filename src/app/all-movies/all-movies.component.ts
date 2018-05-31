@@ -16,7 +16,7 @@ export class AllMoviesComponent implements OnInit {
   filterTerm: string;
 
 
-  constructor(private moviesService: MoviesService, private route: ActivatedRoute, private router: Router) {
+  constructor(private moviesService: MoviesService) {
     this.movies = moviesService.getMovies();
    }
 
@@ -28,8 +28,8 @@ export class AllMoviesComponent implements OnInit {
 
   addToSelectedMovies(movie) {
   this.moviesService.addMovie(movie);
+  this.moviesService.updateBudget(movie);
 }
-
 
   onFilterChanged() {
     // this.router.navigate(['.'], { queryParams: { title: this.filterTerm }});

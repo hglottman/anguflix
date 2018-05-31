@@ -8,5 +8,6 @@
     <p>{{movie.descrShort}}</p>
     <br>
     <span>{{movie.price}}$ </span>
-    <button mat-button (click)='buyMovie()'>Buy me</button>
+    <input type="button" value={{buttonText}} (click)="onButtonClick()">
   </mat-card-content>
+

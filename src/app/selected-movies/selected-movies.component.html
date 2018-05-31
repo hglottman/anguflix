@@ -1,8 +1,8 @@
 <div class='container'>
-  <h1>Selected movies page</h1>
+  <h1>Select movies from below to add to your collection</h1>
   <div class="flex">
     <mat-card flex="30" *ngFor="let movie of selectedMovies" class="movie-card">
-        <app-movie-unit [movie]="movie" (buttonOnClick)="removeMovie($event)"></app-movie-unit>
+        <app-movie-unit [movie]="movie" buttonText="Remove" (buttonOnClick)="removeMovie($event)"></app-movie-unit>
     </mat-card>
 </div> 
 </div>
