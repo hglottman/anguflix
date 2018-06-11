@@ -19,19 +19,19 @@ export class AllMoviesComponent implements OnInit {
 
 
   constructor(private moviesService: MoviesService) {
-    this.movies = moviesService.getMovies();
-   }
-
-   ngOnInit() {
-    // this.route.queryParams.subscribe(queryParams => {
-    //   this.filterTerm = queryParams.title;
-    // });
+    this.moviesService.moviesObservable.subscribe((movies) => {
+      this.movies = movies;
+    });
   }
 
-  addToSelectedMovies(movie) {
-  this.moviesService.addMovie(movie);
-  this.moviesService.updateBudget(movie);
-}
+  ngOnInit() {
+    this.movies = this.moviesService.getMovies();
+  }
+
+//   addToSelectedMovies(movie) {
+//   this.moviesService.addMovie(movie);
+//   this.moviesService.updateBudget(movie);
+// }
 
   onFilterChanged() {
     // this.router.navigate(['.'], { queryParams: { title: this.filterTerm }});

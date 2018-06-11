@@ -23,13 +23,13 @@ export class SelectedMoviesComponent implements OnInit {
   constructor(private moviesService: MoviesService) { }
 
   ngOnInit() {
-    this.selectedMovies = this.moviesService.getSelectedMovies();
+    // this.selectedMovies = this.moviesService.getSelectedMovies();
   }
 
 
-  removeMovie(movie) {
-    this.moviesService.removeMovie(movie);
-  }
+  // removeMovie(movie) {
+  //   this.moviesService.removeMovie(movie);
+  // }
 
 
   buildFilters(filter) {

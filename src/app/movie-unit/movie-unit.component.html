@@ -1,13 +1,17 @@
-  <mat-card-header class="movieUnit">
-<img class='img-movie' src={{movie.img}}>
-  <mat-card-content>
-      <h2 style="text-align:left;float:left;">{{movie.title}},</h2> 
-      <h4 style="text-align:right;float:right;">{{movie.year}}</h4> 
+<mat-card>
+  <mat-card-header class="movieUnit"></mat-card-header>
+    <mat-card-content>
+        <img class='img-movie' src={{movie.imgUrl}}>
+      <h2 style="text-align:left;float:left;">{{movie.title}}</h2>
       <br>
       <br>
-    <p>{{movie.descrShort}}</p>
-    <br>
-    <span>{{movie.price}}$ </span>
-    <input type="button" value={{buttonText}} (click)="onButtonClick()">
-  </mat-card-content>
-
+      <h3 style="text-align:left;float:left;">Director: {{movie.director}}</h3>
+      <h4 style="text-align:right;">{{movie.year}}</h4>
+      <br>
+      <br>
+      <p style="text-align:left;">{{movie.shortDescription}}</p>
+      <br>
+      <span>{{movie.price}}$ </span>
+      <input type="button" value={{buttonText}} (click)="onButtonClick()">
+    </mat-card-content>
+</mat-card>
