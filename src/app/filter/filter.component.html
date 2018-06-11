@@ -1,11 +1,15 @@
 
-<mat-form-field class="1">
-  <input matInput [(ngModel)]="fields.title" (ngModelChange)="buttonOnClick(fields.title)" placeholder="Filter by Title..." />
+
+<mat-form-field class="titleFilter">
+  <span>Filter by title: </span>
+  <br>
+  <input matInput [(ngModel)]="fields.title" (ngModelChange)="buttonOnClick(fields.title)" />
 </mat-form-field>
-<mat-form-field>
+<br>
+<!-- <mat-form-field class="yearFilter">
   <mat-select  [(ngModel)]="fields.year" (ngModelChange)="buttonOnClick(fields.year)" placeholder="Any Year">
     <mat-option *ngFor="let year of years"  [value]="year.viewValue">
       {{ year.viewValue }}
     </mat-option>
   </mat-select>
-</mat-form-field>
+</mat-form-field> -->

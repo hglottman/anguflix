@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Movie } from '../movie';
-import { MoviesService } from '../moviesService';
+import { MoviesService } from '../movies.service';
 import { AllMoviesComponent } from '../all-movies/all-movies.component';
 import { User } from '../user';
 import { HeaderComponent } from '../header/header.component';

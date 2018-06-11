@@ -3,7 +3,7 @@ export class Movie {
         public imgUrl: String;
         public title: String;
         public year: Number;
-        public price: Number;
+        public price: any;
         public shortDescription: String;
         public fullDescription: String;
         public director: String;

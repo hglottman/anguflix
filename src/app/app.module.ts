@@ -12,16 +12,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SelectedMoviesComponent } from './selected-movies/selected-movies.component';
 import { AllMoviesComponent } from './all-movies/all-movies.component';
-import { BudgetComponent } from './budget/budget.component';
 import { FilterComponent } from './filter/filter.component';
 import { DeleteMovieComponent } from './delete-movie/delete-movie.component';
 import { RouterModule, Routes } from '@angular/router';
-import { MoviesService } from './moviesService';
+import { MoviesService } from './movies.service';
+import { UserService } from './user.service';
 import { MovieUnitComponent } from './movie-unit/movie-unit.component';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FilterPipe } from './filter.pipe';
 import { HttpClientModule } from '@angular/common/http';
-
 
 
 
@@ -39,11 +38,10 @@ const appRoutes: Routes = [
     HeaderComponent,
     SelectedMoviesComponent,
     AllMoviesComponent,
-    BudgetComponent,
     FilterComponent,
     DeleteMovieComponent,
     MovieUnitComponent,
-    FilterPipe
+    FilterPipe,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -57,7 +55,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   exports: [RouterModule],
-  providers: [MoviesService],
+  providers: [MoviesService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

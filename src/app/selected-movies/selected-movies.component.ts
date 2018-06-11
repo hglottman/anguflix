@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MoviesService } from '../moviesService';
+import { MoviesService } from '../movies.service';
+import { UserService } from '../user.service';
 import { Movie } from '../movie';
 import { fn } from '@angular/compiler/src/output/output_ast';
 import { FilterComponent } from '../filter/filter.component';
@@ -15,15 +16,19 @@ import { FilterComponent } from '../filter/filter.component';
 export class SelectedMoviesComponent implements OnInit {
 
   selectedMovies = new Array<Movie>();
-  filterTerm: string;
+  filterString: string;
   iconText = 'Remove';
 
   filter: Object = {};
 
-  constructor(private moviesService: MoviesService) { }
+  constructor(private moviesService: MoviesService, private userService: UserService) {
+    this.userService.myMoviesObservable.subscribe((movies) => {
+      this.selectedMovies = movies;
+   });
+  }
 
   ngOnInit() {
-    // this.selectedMovies = this.moviesService.getSelectedMovies();
+    this.selectedMovies = this.userService.getCollection();
   }
 
 

@@ -1,7 +1,5 @@
 <div class='container'>
-    <mat-form-field class="">
-        <input matInput [(ngModel)]="filterTerm"  placeholder="Filter by Title..." />
-        </mat-form-field>
+    <app-filter (buttonClick)=getMovieFilter($event)></app-filter>
     <h1>All movies</h1>
     <div class="flex">
         <mat-card flex="30" *ngFor="let movie of movies  | filter:filterTerm ; let idx = index" class="movie-card">
@@ -13,7 +11,6 @@
 <!-- <div class="line"></div><br>
 <div class="showAllMovies">
 <mat-form-field class="">
-<input matInput [(ngModel)]="filterTerm"  placeholder="Filter by Title..." />
 </mat-form-field>
 <h1> All Movies</h1>
 <div class="cards-container" layout-wrap layout="row">
