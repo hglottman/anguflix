@@ -14,7 +14,6 @@ import { HeaderComponent } from '../header/header.component';
 
 export class MovieUnitComponent implements OnInit {
 
-  // @Input() user: User;
   @Input() movie: Movie = new Movie();
   @Input() buttonText: String = '';
   @Output() buttonOnClick: EventEmitter<Movie> = new EventEmitter();

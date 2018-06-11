@@ -1,8 +1,34 @@
-<div class='container'>
-  <h1>Select movies from below to add to your collection</h1>
-  <div class="flex">
-    <mat-card flex="30" *ngFor="let movie of selectedMovies" class="movie-card">
+<!-- <div class="container">
+    <div *ngIf="selectedMovies.length>0" class="title">
+        <h1>My collection
+            <span class="logoRemove" (click)="removeMovie()">
+                <mat-icon>{{iconText}}</mat-icon>
+            </span>
+        </h1>
+        <app-filter (buttonClick)=buildFilters($event)></app-filter>
+    </div>
+
+
+    <div class="cards-container" layout-wrap layout="row">
+        <div>
+            <h1 *ngIf="selectedMovies.length==0">Select movies from below to add to your collection</h1>
+        </div>
+        <mat-card flex="30" *ngFor="let movie of selectedMovies | filterSelectedmovies:filter" class="movie-card">
+            <app-movie id="buttonClass" [movie]="movie" [showButton]="showButton" buttonIcon='remove_shopping_cart' (buttonOnClick)="removeMovie($event)">
+            </app-movie>
+        </mat-card>
+    </div>
+</div> -->
+
+
+<div>
+<!-- <mat-form-field class="">
+    <input matInput [(ngModel)]="filterTerm" placeholder="Filter by Title..." />
+</mat-form-field> -->
+<h1>Select movies from below to add to your collection</h1>
+<div class="flex">
+    <mat-card flex="30" *ngFor="let movie of selectedMovies | filter:filterTerm " class="movie-card">
         <app-movie-unit [movie]="movie" buttonText="Remove" (buttonOnClick)="removeMovie($event)"></app-movie-unit>
     </mat-card>
-</div> 
+</div>
 </div>

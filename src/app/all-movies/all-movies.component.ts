@@ -3,6 +3,7 @@ import { MoviesService } from '../moviesService';
 import { Movie } from '../movie';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MovieUnitComponent } from '../movie-unit/movie-unit.component';
+import { FilterComponent } from '../filter/filter.component';
 
 
 @Component({
@@ -14,6 +15,7 @@ export class AllMoviesComponent implements OnInit {
 
   movies = new Array<Movie>();
   filterTerm: string;
+  searchText: string;
 
 
   constructor(private moviesService: MoviesService) {

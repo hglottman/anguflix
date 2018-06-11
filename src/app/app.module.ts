@@ -1,18 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
 
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SelectedMoviesComponent } from './selected-movies/selected-movies.component';
 import { AllMoviesComponent } from './all-movies/all-movies.component';
 import { BudgetComponent } from './budget/budget.component';
-import { TitleFilterComponent } from './title-filter/title-filter.component';
-import { YearFilterComponent } from './year-filter/year-filter.component';
+import { FilterComponent } from './filter/filter.component';
 import { DeleteMovieComponent } from './delete-movie/delete-movie.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MoviesService } from './moviesService';
 import { MovieUnitComponent } from './movie-unit/movie-unit.component';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FilterPipe } from './filter.pipe';
+
 
 
 
@@ -31,13 +36,16 @@ const appRoutes: Routes = [
     SelectedMoviesComponent,
     AllMoviesComponent,
     BudgetComponent,
-    TitleFilterComponent,
-    YearFilterComponent,
+    FilterComponent,
     DeleteMovieComponent,
-    MovieUnitComponent
+    MovieUnitComponent,
+    FilterPipe
   ],
   imports: [
+    FormsModule,
+    MatSelectModule,
     MatCardModule,
+    MatFormFieldModule,
     BrowserModule,
     RouterModule.forRoot(appRoutes)
   ],

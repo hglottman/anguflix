@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../moviesService';
 import { Movie } from '../movie';
 import { fn } from '@angular/compiler/src/output/output_ast';
+import { FilterComponent } from '../filter/filter.component';
+
 
 
 @Component({
@@ -14,6 +16,9 @@ export class SelectedMoviesComponent implements OnInit {
 
   selectedMovies = new Array<Movie>();
   filterTerm: string;
+  iconText = 'Remove';
+
+  filter: Object = {};
 
   constructor(private moviesService: MoviesService) { }
 
@@ -24,6 +29,11 @@ export class SelectedMoviesComponent implements OnInit {
 
   removeMovie(movie) {
     this.moviesService.removeMovie(movie);
+  }
+
+
+  buildFilters(filter) {
+    this.filter = filter;
   }
 
 }
